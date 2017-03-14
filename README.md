@@ -4,7 +4,7 @@
 Library of Infineon's [3D magnetic sensor 2GO evaluation board](https://www.infineon.com/cms/en/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/TLV493D-A1B6+2+GO+KIT/productType.html?productType=5546d4624e24005f014e6775d0177011) for Arduino. 
 
 ## Summary
-The 3D Magnetic Sensor 2GO is a budget-priced evaluation board equipped with the magnetic sensor [TLV493D-A1B6](https://www.infineon.com/cms/de/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/channel.html?channel=5546d4624c9e0f0e014c9e105a8a001c) for three dimensional measurement combined with an ARM® Cortex™-M0 CPU. The 3D Magnetic Sensor 2GO has a complete set of on-board devices, including an on-board debugger. Build your own application and gadget with the 3D Magnetic Sensor 2GO.
+The 3D Magnetic Sensor 2GO is a budget-priced evaluation board equipped with the magnetic sensor [TLV493D-A1B6](https://www.infineon.com/cms/de/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/TLV493D-A1B6/productType.html?productType=5546d462525dbac401529cebc74f07b7) for three dimensional measurement combined with an ARM® Cortex™-M0 CPU. The 3D Magnetic Sensor 2GO has a complete set of on-board devices, including an on-board debugger. Build your own application and gadget with the 3D Magnetic Sensor 2GO.
 
 ## Key Features and Benefits
 * TLV493D-A1B6 (three dimensional magnetic sensor)
