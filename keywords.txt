@@ -1,13 +1,10 @@
 #######################################
-# Syntax Coloring Map For MagneticSensor3D
+# Syntax Coloring Map For Tlv493d
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-
-Tlv493d	KEYWORD1
-
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -33,13 +30,11 @@ getAzimuth	KEYWORD2
 getPolar	KEYWORD2
 getTemp	KEYWORD2
 
-
 #######################################
 # Instances (KEYWORD2)
 #######################################
 
-magnetic3dSensor	KEYWORD2
-
+Tlv493d	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)

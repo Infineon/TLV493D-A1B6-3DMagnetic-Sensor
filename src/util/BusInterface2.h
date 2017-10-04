@@ -3,14 +3,17 @@
 
 #include "BusInterface.h"
 
+#define BUS_ERROR 	1
+#define BUS_OK 		0
+
 namespace tlv493d
 {
 	
 void initInterface(BusInterface_t *interface, TwoWire *bus, uint8_t adress);
-void readOut(BusInterface_t *interface);
-void readOut(BusInterface_t *interface, uint8_t count);
-void writeOut(BusInterface_t *interface);
-void writeOut(BusInterface_t *interface, uint8_t count);
+bool readOut(BusInterface_t *interface);
+bool readOut(BusInterface_t *interface, uint8_t count);
+bool writeOut(BusInterface_t *interface);
+bool writeOut(BusInterface_t *interface, uint8_t count);
 
 }
 

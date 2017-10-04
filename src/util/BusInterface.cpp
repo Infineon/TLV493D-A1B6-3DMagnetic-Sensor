@@ -14,32 +14,39 @@ void tlv493d::initInterface(BusInterface_t *interface, TwoWire *bus, uint8_t adr
 	}
 }
 
-void tlv493d::readOut(BusInterface_t *interface)
+bool tlv493d::readOut(BusInterface_t *interface)
 {
-	readOut(interface, TLV493D_BUSIF_READSIZE);
+	return readOut(interface, TLV493D_BUSIF_READSIZE);
 }
 
-void tlv493d::readOut(BusInterface_t *interface, uint8_t count)
+bool tlv493d::readOut(BusInterface_t *interface, uint8_t count)
 {
+	bool ret = BUS_ERROR;
 	int i;
 	if(count > TLV493D_BUSIF_READSIZE)
 	{
 		count = TLV493D_BUSIF_READSIZE;
 	}
-	interface->bus->requestFrom(interface->adress,count);
-	for(i = 0; i < count; i++)
+	uint8_t received_bytes = interface->bus->requestFrom(interface->adress,count);
+	if (received_bytes == count)
 	{
-		interface->regReadData[i] = interface->bus->read();
+		for(i = 0; i < count; i++)
+		{
+			interface->regReadData[i] = interface->bus->read();
+		}
+		ret = BUS_OK;
 	}
+	return ret;
 }
 
-void tlv493d::writeOut(BusInterface_t *interface)
+bool tlv493d::writeOut(BusInterface_t *interface)
 {
-	writeOut(interface, TLV493D_BUSIF_WRITESIZE);
+	return writeOut(interface, TLV493D_BUSIF_WRITESIZE);
 }
 
-void tlv493d::writeOut(BusInterface_t *interface, uint8_t count)
+bool tlv493d::writeOut(BusInterface_t *interface, uint8_t count)
 {
+	bool ret = BUS_ERROR;
 	int i;
 	if(count > TLV493D_BUSIF_WRITESIZE)
 	{
@@ -50,6 +57,10 @@ void tlv493d::writeOut(BusInterface_t *interface, uint8_t count)
 	{
 		interface->bus->write(interface->regWriteData[i]);
 	}
-	interface->bus->endTransmission();
+	if (interface->bus->endTransmission() == 0)
+	{
+		ret = BUS_OK;
+	}
+	return ret;
 }
 

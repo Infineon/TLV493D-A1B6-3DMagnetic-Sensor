@@ -5,21 +5,28 @@
  */
 
 
-#ifndef MAGNETICSENSOR3D_H_INCLUDED
-#define MAGNETICSENSOR3D_H_INCLUDED
+#ifndef TLV493D_H_INCLUDED
+#define TLV493D_H_INCLUDED
 
 
 #include <Arduino.h>
 #include <Wire.h>
 #include "./util/BusInterface.h"
-#include "./util/TLV493D.h"
-#include "./util/TLV493D_conf.h"
+#include "./util/Tlv493d_conf.h"
 
 typedef enum Tlv493d_Address
 {
-	TLV493D_ADDRESS1	=	0x1F,
-	TLV493D_ADDRESS2	=	0x5E
+	TLV493D_ADDRESS1	=	0x5E,
+	TLV493D_ADDRESS2	=	0x1F
 }Tlv493d_Address_t;
+
+
+typedef enum Tlv493d_Error
+{
+	TLV493D_NO_ERROR	=	0,
+	TLV493D_BUS_ERROR	=	1,
+	TLV493D_FRAME_ERROR	=	2
+}Tlv493d_Error_t;
 
 
 /*
@@ -57,6 +64,7 @@ public:
 	 *	each readout returns the latest measurement results
 	 * use FASTMODE for for continuous measurements on high frequencies
 	 *	measurement time might be higher than the time necessary for I2C-readouts in this mode. 
+	 *	Note: Thus, this mode requires a non-standard 1MHz I2C clock to be used to read the data fast enough.
 	 */
 	enum AccessMode_e
 	{
@@ -66,7 +74,7 @@ public:
 		ULTRALOWPOWERMODE,
 		MASTERCONTROLLEDMODE,
 	};
-	void setAccessMode(AccessMode_e mode);
+	bool setAccessMode(AccessMode_e mode);
 	// interrupt is disabled by default
 	// it is recommended for FASTMODE, LOWPOWERMODE and ULTRALOWPOWERMODE
 	// the interrupt is indicated with a short(1.5 us) low pulse on SCL
@@ -81,7 +89,7 @@ public:
 	// returns the recommended time between two readouts for the sensor's current configuration
 	uint16_t getMeasurementDelay(void);
 	// read measurement results from sensor
-	uint8_t updateData(void);
+	Tlv493d_Error_t updateData(void);
 	
 	// fieldvector in Cartesian coordinates
 	float getX(void);
@@ -103,6 +111,7 @@ private:
 	int16_t mYdata;
 	int16_t mZdata;
 	int16_t	mTempdata;
+	uint8_t mExpectedFrameCount;
 	
 
 	void resetSensor(uint8_t adr);
@@ -112,6 +121,4 @@ private:
 	int16_t concatResults(uint8_t upperByte, uint8_t lowerByte, bool upperFull);
 };
 
-extern Tlv493d magnetic3dSensor;
-
-#endif		/* MAGNETICSENSOR3D_H_INCLUDED */
+#endif		/* TLV493D_H_INCLUDED */

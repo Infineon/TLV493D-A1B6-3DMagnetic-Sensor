@@ -1,27 +1,25 @@
-#include <MagneticSensor3D.h>
+#include <Tlv493d.h>
 
+// Tlv493d Opject
+Tlv493d Tlv493dMagnetic3DSensor = Tlv493d();
 
 void setup() {
-  pinMode(14, OUTPUT);
-  pinMode(15, OUTPUT);
   Serial.begin(9600);
   while(!Serial);
-  magnetic3dSensor.begin();
+  Tlv493dMagnetic3DSensor.begin();
   digitalWrite(14, HIGH);
 }
 
 void loop() {
-  digitalWrite(15, LOW);
-  magnetic3dSensor.updateData();
+  Tlv493dMagnetic3DSensor.updateData();
   delay(100);
-  digitalWrite(15, HIGH);
 
   Serial.print("X = ");
-  Serial.print(magnetic3dSensor.getX());
+  Serial.print(Tlv493dMagnetic3DSensor.getX());
   Serial.print(" mT; Y = ");
-  Serial.print(magnetic3dSensor.getY());
+  Serial.print(Tlv493dMagnetic3DSensor.getY());
   Serial.print(" mT; Z = ");
-  Serial.print(magnetic3dSensor.getZ());
+  Serial.print(Tlv493dMagnetic3DSensor.getZ());
   Serial.println(" mT");
    
   delay(500);

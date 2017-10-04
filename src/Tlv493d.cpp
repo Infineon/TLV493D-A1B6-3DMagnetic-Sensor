@@ -5,13 +5,11 @@
  */
 
 
-#include "MagneticSensor3D.h"
+#include "Tlv493d.h"
 #include "./util/RegMask.h"
 #include "./util/BusInterface2.h"
 #include <math.h>
 
-
-Tlv493d magnetic3dSensor = Tlv493d();
 
 Tlv493d::Tlv493d(void)
 {
@@ -19,6 +17,7 @@ Tlv493d::Tlv493d(void)
 	mYdata = 0;
 	mZdata = 0;
 	mTempdata = 0;
+	mExpectedFrameCount = 0x00;
 }
 
 
@@ -44,7 +43,7 @@ void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
 
 	mInterface.bus->begin();
 
-	if(reset == TRUE)
+	if(reset == true)
 	{
 		resetSensor(mInterface.adress);
 	}
@@ -60,8 +59,6 @@ void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
 	// config sensor to lowpower mode
 	// also contains parity calculation and writeout to sensor
 	setAccessMode(TLV493D_DEFAULTMODE);
-	delay(getMeasurementDelay());
-	updateData();
 }
 
 
@@ -72,15 +69,20 @@ void Tlv493d::end(void)
 }
 
 
-void Tlv493d::setAccessMode(AccessMode_e mode)
+bool Tlv493d::setAccessMode(AccessMode_e mode)
 {
+	bool ret = BUS_ERROR;
 	const tlv493d::AccessMode_t *modeConfig = &(tlv493d::accModes[mode]);
 	setRegBits(tlv493d::W_FAST, modeConfig->fast);
 	setRegBits(tlv493d::W_LOWPOWER, modeConfig->lp);
 	setRegBits(tlv493d::W_LP_PERIOD, modeConfig->lpPeriod);
 	calcParity();
-	tlv493d::writeOut(&mInterface);
-	mMode = mode;
+	ret = tlv493d::writeOut(&mInterface);
+	if ( ret != BUS_ERROR )
+	{
+		mMode = mode;
+	}
+	return ret;
 }
 
 
@@ -121,49 +123,77 @@ uint16_t Tlv493d::getMeasurementDelay(void)
 }
 
 
-uint8_t Tlv493d::updateData(void)
+Tlv493d_Error_t Tlv493d::updateData(void)
 {
+	Tlv493d_Error_t ret = TLV493D_NO_ERROR;
 	// in POWERDOWNMODE, sensor has to be switched on for one measurement
 	uint8_t powerdown = 0;
 	if(mMode == POWERDOWNMODE) 
 	{
-		setAccessMode(MASTERCONTROLLEDMODE);
+		if (setAccessMode(MASTERCONTROLLEDMODE) != BUS_OK)
+		{
+			ret = TLV493D_BUS_ERROR;
+		}
 		delay(getMeasurementDelay());
 		powerdown = 1;
 	}
+	if(ret == TLV493D_NO_ERROR)
+	{
 #ifdef TLV493D_ACCELERATE_READOUT
-	// just read the most important results in FASTMODE, if this behaviour is desired
-	if(mMode == FASTMODE) 
-	{
-		readOut(&mInterface, TLV493D_FAST_READOUT);
-	}
-	else
-	{
-		readOut(&mInterface, TLV493D_MEASUREMENT_READOUT);
-	}
+		// just read the most important results in FASTMODE, if this behaviour is desired
+		if(mMode == FASTMODE)
+		{
+			if (readOut(&mInterface, TLV493D_FAST_READOUT) != BUS_OK)
+			{
+				ret = TLV493D_BUS_ERROR;
+			}
+		}
+		else
+		{
+			if (readOut(&mInterface, TLV493D_MEASUREMENT_READOUT) != BUS_OK)
+			{
+				ret = TLV493D_BUS_ERROR;
+			}
+		}
 #else
-	readOut(&mInterface, TLV493D_MEASUREMENT_READOUT);
+		if (readOut(&mInterface, TLV493D_MEASUREMENT_READOUT) != BUS_OK)
+		{
+			ret = TLV493D_BUS_ERROR;
+		}
 #endif
-	// construct results from registers
-	mXdata = concatResults(getRegBits(tlv493d::R_BX1), getRegBits(tlv493d::R_BX2), true);
-	mYdata = concatResults(getRegBits(tlv493d::R_BY1), getRegBits(tlv493d::R_BY2), true);
-	mZdata = concatResults(getRegBits(tlv493d::R_BZ1), getRegBits(tlv493d::R_BZ2), true);
-	mTempdata = concatResults(getRegBits(tlv493d::R_TEMP1), getRegBits(tlv493d::R_TEMP2), false);
-	// switch sensor back to POWERDOWNMODE, if it was in POWERDOWNMODE before
-	if(powerdown)
-	{
-		setAccessMode(POWERDOWNMODE);
+		if (ret == TLV493D_NO_ERROR)
+		{
+			// construct results from registers
+			mXdata = concatResults(getRegBits(tlv493d::R_BX1), getRegBits(tlv493d::R_BX2), true);
+			mYdata = concatResults(getRegBits(tlv493d::R_BY1), getRegBits(tlv493d::R_BY2), true);
+			mZdata = concatResults(getRegBits(tlv493d::R_BZ1), getRegBits(tlv493d::R_BZ2), true);
+			mTempdata = concatResults(getRegBits(tlv493d::R_TEMP1), getRegBits(tlv493d::R_TEMP2), false);
+			// switch sensor back to POWERDOWNMODE, if it was in POWERDOWNMODE before
+			if(powerdown)
+			{
+				if (setAccessMode(POWERDOWNMODE) != BUS_OK)
+				{
+					ret = TLV493D_BUS_ERROR;
+				}
+			}
+			if (ret == TLV493D_NO_ERROR)
+			{
+				// if the return value is 0, all results are from the same frame
+				// otherwise some results may be outdated
+				if(getRegBits(tlv493d::R_CHANNEL) != 0)
+				{
+					ret = TLV493D_FRAME_ERROR;
+				}
+				// if received frame count does not match expected one (frame count from 0 to 3)
+				else if( getRegBits(tlv493d::R_FRAMECOUNTER) != (mExpectedFrameCount % 4) )
+				{
+					ret = TLV493D_FRAME_ERROR;
+				}
+			}
+		}
 	}
-	// if the return value is 0, all results are from the same frame
-	// otherwise some results may be outdated
-	if(getRegBits(tlv493d::R_CHANNEL)==0)
-	{
-		return (!getRegBits(tlv493d::R_POWERDOWNFLAG));
-	}
-	else
-	{
-		return getRegBits(tlv493d::R_CHANNEL);
-	}
+	mExpectedFrameCount = getRegBits(tlv493d::R_FRAMECOUNTER) + 1;
+	return ret;
 }
 
 
@@ -221,15 +251,15 @@ float Tlv493d::getPolar(void)
 void Tlv493d::resetSensor(uint8_t adr)     // Recovery & Reset - this can be handled by any uC as it uses bitbanging
 {
 	mInterface.bus->beginTransmission(0x00);
-	
+
 	if (adr == TLV493D_ADDRESS1) {
 		// if the sensor shall be initialized with i2c address 0x1F
-		mInterface.bus->write(0x00);
+		mInterface.bus->write(0xFF);
 	} else {
 		// if the sensor shall be initialized with address 0x5E
-		mInterface.bus->write(0xFF);
+		mInterface.bus->write(0x00);
 	}
-	
+
 	mInterface.bus->endTransmission(TRUE);
 }
 
