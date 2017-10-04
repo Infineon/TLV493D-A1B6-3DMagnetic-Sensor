@@ -7,7 +7,6 @@ void setup() {
   Serial.begin(9600);
   while(!Serial);
   Tlv493dMagnetic3DSensor.begin();
-  digitalWrite(14, HIGH);
 }
 
 void loop() {
