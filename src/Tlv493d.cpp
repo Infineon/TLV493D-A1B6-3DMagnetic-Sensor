@@ -184,11 +184,12 @@ Tlv493d_Error_t Tlv493d::updateData(void)
 				{
 					ret = TLV493D_FRAME_ERROR;
 				}
-				// if received frame count does not match expected one (frame count from 0 to 3)
-				else if( getRegBits(tlv493d::R_FRAMECOUNTER) != (mExpectedFrameCount % 4) )
-				{
-					ret = TLV493D_FRAME_ERROR;
-				}
+// Todo: removed due to a lot of frame errors
+//				// if received frame count does not match expected one (frame count from 0 to 3)
+//				else if( getRegBits(tlv493d::R_FRAMECOUNTER) != (mExpectedFrameCount % 4) )
+//				{
+//					ret = TLV493D_FRAME_ERROR;
+//				}
 			}
 		}
 	}
