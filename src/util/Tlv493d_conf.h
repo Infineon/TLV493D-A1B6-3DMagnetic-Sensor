@@ -3,13 +3,6 @@
 
 #include "RegMask.h"
 
-#ifndef TRUE
-#define TRUE	1
-#endif
-#ifndef FALSE
-#define FALSE	0
-#endif
-
 #define TLV493D_DEFAULTMODE			POWERDOWNMODE
 
 #define TLV493D_STARTUPDELAY		40

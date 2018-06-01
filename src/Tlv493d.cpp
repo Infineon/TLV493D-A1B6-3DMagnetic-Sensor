@@ -28,12 +28,12 @@ Tlv493d::~Tlv493d(void)
 
 void Tlv493d::begin(void)
 {
-	begin(Wire, TLV493D_ADDRESS1, TRUE);
+	begin(Wire, TLV493D_ADDRESS1, true);
 }
 
 void Tlv493d::begin(TwoWire &bus)
 {
-	begin(bus, TLV493D_ADDRESS1, TRUE);
+	begin(bus, TLV493D_ADDRESS1, true);
 }
 
 void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
