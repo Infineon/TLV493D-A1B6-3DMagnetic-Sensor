@@ -2,6 +2,8 @@
 #define TLV493D_CONF_H_INCLUDED
 
 #include "RegMask.h"
+#include "TLV493D.h"
+
 
 #define TLV493D_DEFAULTMODE			POWERDOWNMODE
 
