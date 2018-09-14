@@ -287,7 +287,7 @@ void Tlv493d::resetSensor(uint8_t adr)     // Recovery & Reset - this can be han
 		mInterface.bus->write(0x00);
 	}
 
-	mInterface.bus->endTransmission(TRUE);
+	mInterface.bus->endTransmission(true);
 }
 
 void Tlv493d::setRegBits(uint8_t regMaskIndex, uint8_t data)
