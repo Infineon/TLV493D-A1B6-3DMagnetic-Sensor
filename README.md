@@ -47,6 +47,8 @@ Please note that base of the Sensors 2GO is the XMC 2Go from Infineon. Therefore
 ### TLV493D-A1B6 3DSense Shield2Go
 The TLV493D-A1B6 3DMagnetic Shield2Go is a standalone break out board with Infineon's Shield2Go formfactor and pin out. You can connect it easily to any microcontroller of your choice which is Arduino compatible and has 3.3V logic level (please note that the Arduino UNO has 5V logic level and cannot be used without level shifting).
 
+* [Link](https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/wiki) to the wiki with more information
+
 However, every Shield2Go is directly compatible with Infineon's XMC2Go and the recommended quick start is to use an XMC2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the TLV493D-A1B6 3DMagnetic Shield2Go onto the XMC2Go as shown below.
 
 <img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLV493D-A1B6_S2Go_w_XMC2Go.png" width=250>
@@ -57,4 +59,6 @@ This library supports the open-source software [Processing](https://processing.o
 ## Board Information, Datasheet and Additional Information
 
 The datasheet for the TLV493D-A1B6 can be found here [TLV493D-A1B6 Datasheet](https://www.infineon.com/dgdl/Infineon-TLV493D-A1B6-DS-v01_00-EN.pdf?fileId=5546d462525dbac40152a6b85c760e80) while respective application notes are located here [Application Notes](https://www.infineon.com/cms/de/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/TLV493D-A1B6+2+GO+KIT/productType.html?productType=5546d4624e24005f014e6775d0177011#ispnTab4).
+
+Please check the [wiki](https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/wiki) with more information for the TLV493D-A1B6 3D Sense Shield2Go as well.
 
