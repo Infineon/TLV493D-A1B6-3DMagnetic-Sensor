@@ -44,7 +44,7 @@ The 3D Magnetic Sensor 2GO is an evaluation board equipped with the magnetic sen
 
 Please note that base of the Sensors 2GO is the XMC 2Go from Infineon. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board.
 
-### TLV493D-A1B6 3DMagnetic Shield2Go
+### TLV493D-A1B6 3DSense Shield2Go
 The TLV493D-A1B6 3DMagnetic Shield2Go is a standalone break out board with Infineon's Shield2Go formfactor and pin out. You can connect it easily to any microcontroller of your choice which is Arduino compatible and has 3.3V logic level (please note that the Arduino UNO has 5V logic level and cannot be used without level shifting).
 
 However, every Shield2Go is directly compatible with Infineon's XMC2Go and the recommended quick start is to use an XMC2Go for evaluation. Therefore, please install (if not already done) also the [XMC-for-Arduino](https://github.com/Infineon/XMC-for-Arduino) implementation and choose afterwards **XMC1100 XMC2Go** from the **Tools**>**Board** menu in the Arduino IDE if working with this evaluation board. To use it, please plug the TLV493D-A1B6 3DMagnetic Shield2Go onto the XMC2Go as shown below.
