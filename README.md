@@ -1,7 +1,5 @@
 # TLV493D-A1B6-3DMagnetic-Sensor
-<img src="https://github.com/Infineon/Assets/blob/master/Pictures/3D%20Magnetic%20Sensor%202Go.jpg" width=250>
-
-<img src="https://www.infineon.com/export/sites/default/media/products/Sensors/TLV493D-Sense-Shield2Go_Top_plain.jpg_2045671804.jpg" width=300>
+<img src="https://github.com/Infineon/Assets/blob/master/Pictures/3D%20Magnetic%20Sensor%202Go.jpg" width=250> <img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLV493D-Sense-Shield2Go_Top_plain.jpg_2045671804.jpg?raw=true" width=300>
 
 Library of Infineon's [3D magnetic sensor 2GO evaluation board](https://www.infineon.com/cms/en/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/TLV493D-A1B6+2+GO+KIT/productType.html?productType=5546d4624e24005f014e6775d0177011) for Arduino. 
 
