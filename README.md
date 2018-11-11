@@ -23,7 +23,7 @@ Key features are 3D magnetic sensing with a very low power consumption during op
 ## Installation
 
 ### Integration of Library
-Please download this repository from GitHub by clicking on the following field in the [releases](https://github.com/Infineon/3D-Magnetic-Sensor-2GO/releases) of this repository or directly [here](https://github.com/Infineon/3D-Magnetic-Sensor-2GO/releases/download/V1.0.0/IFX-3D-Magnetic-Sensor-2GO.zip):
+Please download this repository from GitHub by clicking on the following field in the [releases](https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/releases) of this repository.
 
 ![Download Library](https://raw.githubusercontent.com/infineon/assets/master/Pictures/Releases_Generic.jpg)
 
