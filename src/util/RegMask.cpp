@@ -47,6 +47,7 @@ uint8_t tlv493d::setToRegs(const RegMask_t *mask, uint8_t *regData, uint8_t toWr
 		regValue |= (toWrite << mask->shift) & mask->bitMask;
 		regData[mask->byteAdress] = regValue;
 	}
+	return 0;
 }
 
 
