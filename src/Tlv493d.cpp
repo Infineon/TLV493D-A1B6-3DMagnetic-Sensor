@@ -312,6 +312,7 @@ uint8_t Tlv493d::getRegBits(uint8_t regMaskIndex)
 			return tlv493d::getFromRegs(mask, mInterface.regWriteData);
 		}
 	}
+	return 0;
 }
 
 void Tlv493d::calcParity(void) 
