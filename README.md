@@ -63,7 +63,7 @@ The TLx493D 3D magnetic sensor family has additional tools which can be directly
 
 ## Board Information, Datasheet and Additional Information
 
-The datasheet for the TLV493D-A1B6 can be found here [TLV493D-A1B6 Datasheet](https://www.infineon.com/dgdl/Infineon-TLV493D-A1B6-DS-v01_00-EN.pdf?fileId=5546d462525dbac40152a6b85c760e80) while respective application notes are located here [Application Notes](https://www.infineon.com/cms/de/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/TLV493D-A1B6+2+GO+KIT/productType.html?productType=5546d4624e24005f014e6775d0177011#ispnTab4).
+The datasheet for the TLV493D-A1B6 can be found here [TLV493D-A1B6 Datasheet](https://www.infineon.com/dgdl/Infineon-TLV493D-A1B6-DS-v01_00-EN.pdf?fileId=5546d462525dbac40152a6b85c760e80) while respective application notes are located here [Application Notes](https://www.infineon.com/dgdl/Infineon-Infineon-Infineon-3DMS2GO_TLv493D-A1B6-UM-v01_01-EN-UM-v01-UM-v01_01-EN.pdf?fileId=5546d462525dbac40152ac4ca1d318c2).
 
 Please check the [wiki](https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/wiki) with more information for the TLV493D-A1B6 3DSense Shield2Go as well.
 
