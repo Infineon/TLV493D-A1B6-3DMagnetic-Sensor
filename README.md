@@ -36,7 +36,7 @@ Please see the example sketches in the `/examples` directory in this library to 
 
 Currently, there exist two separate evaluation boards:
 
-* [TLV493D-A1B6 MS2GO](https://www.infineon.com/cms/en/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/tlv493d-a1b6-ms2go/)
+* [TLV493D-A1B6 MS2GO](https://www.infineon.com/cms/de/product/evaluation-boards/tlv493d-a1b6-ms2go/)
 * [TLV493D-A1B6 3DMagnetic Shield2Go](https://www.infineon.com/cms/en/product/evaluation-boards/s2go_3d-sense_tlv493d/)
 
 ### Usage with TLV493D-A1B6 MS2GO
