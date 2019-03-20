@@ -57,9 +57,10 @@ However, every Shield2Go is directly compatible with Infineon's XMC2Go and the r
 This library supports the open-source software [Processing](https://processing.org/) for creating GUIs. It allows you to connect your evaluation board to a PC over serial communication and visualisation of the embedded system. Find out more on the Arduino homepage [here](http://playground.arduino.cc/Interfacing/Processing). The respective files are stored in the /processing folder of this repository. 
 
 ## Printables
-The TLx493D 3D magnetic sensor family has additional tools which can be directly mounted on top of the evaluation boards. The 3D print data of the [joystick](https://www.infineon.com/cms/en/product/promopages/sensors-2go/#supplements-for-3d-2go) can be found in the folder `printables/joystick`.
+The TLx493D 3D magnetic sensor family has additional tools which can be directly mounted on top of the evaluation boards. The 3D print data of the [joystick](https://www.infineon.com/cms/en/product/promopages/sensors-2go/#Add-ons-3D-Magnetic-2GO), the [rotate knob](https://www.infineon.com/cms/en/product/promopages/sensors-2go/#Add-ons-3D-Magnetic-2GO) and the [linear slider](https://www.infineon.com/cms/en/product/promopages/sensors-2go/#Add-ons-3D-Magnetic-2GO) can be found in the folder `printables`.
 
 <img src="https://www.infineon.com/export/sites/default/media/products/Sensors/joystick.jpg_708092179.jpg" width=250>
+<img src="https://github.com/Infineon/Assets/blob/master/Pictures/3Drotateknob.png" width=250>
 
 ## Board Information, Datasheet and Additional Information
 
