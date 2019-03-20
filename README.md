@@ -18,7 +18,7 @@ Key features are 3D magnetic sensing with a very low power consumption during op
 * 12-bit data resolution for each measurement direction
 * Resolution 98 µT/LSB
 * Operating temperature range from -40 °C to 125 °C
-* [GUI](https://www.infineon.com/cms/en/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/TLV493D-A1B6+2+GO+KIT/productType.html?productType=5546d4624e24005f014e6775d0177011#ispnTab12) for free download as well as integration in Arduino IDE with this repository
+* [GUI](https://www.infineon.com/cms/en/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/?redirId=67528#!tools) for free download as well as integration in Arduino IDE with this repository
 
 ## Installation
 
