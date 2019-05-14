@@ -64,6 +64,11 @@ void Tlv493d::begin(TwoWire &bus)
 
 void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
 {
+	//Workaround for Kit2GO
+	pinMode(LED2, OUTPUT);
+	digitalWrite(LED2, HIGH);
+	delay(50);
+	
 	initInterface(&mInterface, &bus, slaveAddress);
 	delay(TLV493D_STARTUPDELAY);
 
