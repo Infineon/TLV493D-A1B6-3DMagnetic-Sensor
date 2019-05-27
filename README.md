@@ -1,4 +1,7 @@
 # TLV493D-A1B6-3DMagnetic-Sensor
+
+[![Build Status](https://travis-ci.org/Infineon/TLV493D-A1B6-3DMagnetic-Sensor.svg?branch=master)](https://travis-ci.org/Infineon/TLV493D-A1B6-3DMagnetic-Sensor)
+
 <img src="https://github.com/Infineon/Assets/blob/master/Pictures/3D%20Magnetic%20Sensor%202Go.jpg" width=250> <img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLV493D-Sense-Shield2Go_Top_plain.jpg_2045671804.jpg?raw=true" width=300>
 
 Library of Infineon's [TLV493D-A1B6 3D magnetic sensor](https://www.infineon.com/cms/de/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/tlv493d-a1b6/) for Arduino. 

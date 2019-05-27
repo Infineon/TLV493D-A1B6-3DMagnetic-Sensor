@@ -1,0 +1,23 @@
+language: python
+python:
+    - "2.7"
+
+sudo: required
+        
+branches:
+    - master
+
+env:
+    matrix:
+        - PLATFORMIO_CI_SRC=examples/Cartesian
+        - PLATFORMIO_CI_SRC=examples/CartesianFast
+        - PLATFORMIO_CI_SRC=examples/spherical
+        - PLATFORMIO_CI_SRC=examples/SphericalFast
+
+install:
+    - pip install -U platformio
+    - platformio platform install -f infineonxmc 
+    - platformio platform install -f atmelavr
+
+script:
+    - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno
