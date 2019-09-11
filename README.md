@@ -4,7 +4,7 @@
 
 <img src="https://github.com/Infineon/Assets/blob/master/Pictures/3D%20Magnetic%20Sensor%202Go.jpg" width=250> <img src="https://github.com/Infineon/Assets/blob/master/Pictures/TLV493D-Sense-Shield2Go_Top_plain.jpg_2045671804.jpg?raw=true" width=300>
 
-Library of Infineon's [TLV493D-A1B6 3D magnetic sensor](https://www.infineon.com/cms/de/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/tlv493d-a1b6/) for Arduino. 
+Library of Infineon's [TLV493D-A1B6 3D magnetic sensor](https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/3d-magnetics/tlv493d-a1b6/) for Arduino. 
 
 ## Summary
 The 3D magnetic sensor TLV493D-A1B6 offers accurate three-dimensional sensing with extremely low power consumption in a small 6-pin package. With its magnetic field detection in x, y, and z-direction the sensor reliably measures three-dimensional, linear and rotation movements. Applications include joysticks, control elements (white goods, multifunction knops), or electric meters (anti tampering) and any other application that requires accurate angular measurements or low power consumptions.
@@ -21,7 +21,7 @@ Key features are 3D magnetic sensing with a very low power consumption during op
 * 12-bit data resolution for each measurement direction
 * Resolution 98 µT/LSB
 * Operating temperature range from -40 °C to 125 °C
-* [GUI](https://www.infineon.com/cms/en/product/sensor/magnetic-position-sensor/3d-magnetic-sensor/?redirId=67528#!tools) for free download as well as integration in Arduino IDE with this repository
+* [GUI](https://www.infineon.com/dgdl/Infineon-Software-for-3D-Magnetic-Sensor-2Go%20incl.%20out-of-shaft_05_06-SW-v05_06-EN.zip?fileId=5546d4626102d35a01614626f9644e4e) for free download as well as integration in Arduino IDE with this repository
 
 ## Installation
 
