@@ -87,8 +87,8 @@ void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
 	tlv493d::readOut(&mInterface);
 	// copy factory settings to write registers
 	setRegBits(tlv493d::W_RES1, getRegBits(tlv493d::R_RES1));
-	setRegBits(tlv493d::W_RES1, getRegBits(tlv493d::R_RES1));
-	setRegBits(tlv493d::W_RES1, getRegBits(tlv493d::R_RES1));
+	setRegBits(tlv493d::W_RES2, getRegBits(tlv493d::R_RES2));
+	setRegBits(tlv493d::W_RES3, getRegBits(tlv493d::R_RES3));
 	// enable parity detection
 	setRegBits(tlv493d::W_PARITY_EN, 1);
 	// config sensor to lowpower mode
