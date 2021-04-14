@@ -64,15 +64,6 @@ void Tlv493d::begin(TwoWire &bus)
 
 void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
 {
-	/**
-	 * Workaround for kit2go vdd enable
-	 */
-	#ifdef TLV493D_A1B6_KIT2GO
-	pinMode(LED2, OUTPUT);
-	digitalWrite(LED2, HIGH);
-	delay(50);
-	#endif
-	
 	initInterface(&mInterface, &bus, slaveAddress);
 	delay(TLV493D_STARTUPDELAY);
 
@@ -87,8 +78,8 @@ void Tlv493d::begin(TwoWire &bus, Tlv493d_Address_t slaveAddress, bool reset)
 	tlv493d::readOut(&mInterface);
 	// copy factory settings to write registers
 	setRegBits(tlv493d::W_RES1, getRegBits(tlv493d::R_RES1));
-	setRegBits(tlv493d::W_RES1, getRegBits(tlv493d::R_RES1));
-	setRegBits(tlv493d::W_RES1, getRegBits(tlv493d::R_RES1));
+	setRegBits(tlv493d::W_RES2, getRegBits(tlv493d::R_RES2));
+	setRegBits(tlv493d::W_RES3, getRegBits(tlv493d::R_RES3));
 	// enable parity detection
 	setRegBits(tlv493d::W_PARITY_EN, 1);
 	// config sensor to lowpower mode
