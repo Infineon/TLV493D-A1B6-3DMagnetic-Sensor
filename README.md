@@ -1,3 +1,7 @@
+## Deprecation Notice
+> [!WARNING]  
+> This library is **deprecated** and no longer maintained. Please use our [XENSIV™ 3D Magnetic Sensor TLx493D Arduino Library](https://github.com/Infineon/arduino-xensiv-3d-magnetic-sensor-tlx493d) instead.
+
 # TLV493D-A1B6-3DMagnetic-Sensor
 
 [![Build Status](https://travis-ci.org/Infineon/TLV493D-A1B6-3DMagnetic-Sensor.svg?branch=master)](https://travis-ci.org/Infineon/TLV493D-A1B6-3DMagnetic-Sensor)
